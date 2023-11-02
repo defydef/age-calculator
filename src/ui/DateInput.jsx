@@ -1,4 +1,7 @@
+import { useState } from "react";
+
 export function DateInput({ placeholder, label }) {
+  const [input, setInput] = useState("");
   return (
     <div className="inline-flex flex-col items-start gap-[8px] relative flex-[0_0_auto]">
       <label
@@ -12,6 +15,8 @@ export function DateInput({ placeholder, label }) {
         type="text"
         placeholder={placeholder}
         name="day"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
       />
     </div>
   );
