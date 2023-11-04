@@ -24,7 +24,7 @@ function App() {
       (month === 2 && isLeapYear(year) && (day === 30 || day === 31)) ||
       (month === 2 && !isLeapYear(year) && day > 28 && day < 32)
     )
-      return "Invalid date";
+      return "Must be a valid date";
     return null;
   }
 
@@ -37,10 +37,13 @@ function App() {
     const futureDateError =
       submittedDate > today ? "Must be in the past" : null;
     const invalidDateError = getInvalidDateError(day, month, year);
-    const emptyFieldError =
-      !day || !month || !year ? "date input is required" : null;
+    const emptyDayError = !day ? "This field is required" : null;
+    const emptyMonthError = !month ? "This field is required" : null;
+    const emptyYearError = !year ? "This field is required" : null;
     const isValidInput =
-      !emptyFieldError &&
+      !emptyDayError &&
+      !emptyMonthError &&
+      !emptyYearError &&
       !dayError &&
       !monthError &&
       !futureDateError &&
@@ -52,7 +55,9 @@ function App() {
       payload: isValidInput
         ? null
         : {
-            emptyFieldError,
+            emptyDayError,
+            emptyMonthError,
+            emptyYearError,
             dayError,
             monthError,
             futureDateError,

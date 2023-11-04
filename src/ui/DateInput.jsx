@@ -7,10 +7,10 @@ export function DateInput({ placeholder, label }) {
 
   const errorClass = () => {
     if (
-      (label === "day" && error?.dayError) ||
-      (label === "month" && error?.monthError) ||
-      (label === "year" && error?.futureDateError) ||
-      error?.emptyFieldError
+      (label === "day" && (error?.dayError || error?.emptyDayError)) ||
+      (label === "month" && (error?.monthError || error?.emptyMonthError)) ||
+      (label === "year" && (error?.futureDateError || error?.emptyYearError)) ||
+      error?.invalidDateError
     )
       return {
         errorLine: "border-[var(--red)]",
@@ -55,6 +55,12 @@ export function DateInput({ placeholder, label }) {
         value={value}
         onChange={changeDateInput}
       />
+      <p className={`${errorColor} italic text-sm`}>
+        {label === "day" &&
+          (error?.emptyDayError || error?.dayError || error?.invalidDateError)}
+        {label === "month" && (error?.emptyMonthError || error?.monthError)}
+        {label === "year" && (error?.emptyYearError || error?.futureDateError)}
+      </p>
     </div>
   );
 }
