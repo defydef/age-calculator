@@ -40,21 +40,28 @@ export function DateInput({ placeholder, label }) {
   }
 
   return (
-    <div className="inline-flex flex-col items-start gap-[8px] relative flex-[0_0_auto]">
+    <div className="flex flex-col items-start sm:gap-[8px] gap-1 sm:flex-[0_0_auto]">
       <label
-        className={`relative w-fit font-heading-s font-[number:var(--heading-s-font-weight)] text-[var(--grey)] text-[length:var(--heading-s-font-size)] tracking-[var(--heading-s-letter-spacing)] leading-[var(--heading-s-line-height)] [font-style:var(--heading-s-font-style)] uppercase ${errorColor}`}
-        htmlFor="day"
+        className={`relative sm:w-fit sm:font-heading-s font-[number:var(--heading-s-font-weight)] text-[var(--grey)] sm:text-[length:var(--heading-s-font-size)] tracking-[var(--heading-s-letter-spacing)] text-[length:0.75rem] leading-[var(--heading-s-line-height)] uppercase ${errorColor}`}
+        htmlFor={label}
       >
         {label}
       </label>
       <input
-        className={`w-[160px] px-[24px] py-[6px] rounded-[8px] border border-solid border-line placeholder:text-[var(--black)] placeholder:opacity-50 placeholder:tracking-[var(--heading-m-letter-spacing)] placeholder:leading-[var(--heading-m-line-height)] placeholder:font-[number:var(--heading-m-font-weight)] items-center h-fit text-[32px] placeholder:uppercase font-[number:var(--heading-m-font-weight)] focus:outline-[var(--purple)] cursor-pointer caret-[var(--purple)] ${errorLine}`}
+        className={`sm:w-[160px] w-full sm:px-[24px] sm:py-[6px] p-[0.75rem_1rem] sm:rounded-[8px] rounded-lg border border-solid border-line placeholder:text-[var(--black)] placeholder:opacity-50 placeholder:tracking-[var(--heading-m-letter-spacing)] placeholder:leading-[var(--heading-m-line-height)] placeholder:sm:font-[number:var(--heading-m-font-weight)] items-center h-fit sm:text-[32px] text-[1.25rem] placeholder:uppercase font-[number:var(--heading-m-font-weight)] focus:outline-[var(--purple)] cursor-pointer caret-[var(--purple)] placeholder:text-[1.25rem] ${errorLine}`}
         type="number"
         placeholder={placeholder}
         name="day"
         value={value}
         onChange={changeDateInput}
       />
+      {/* <input
+        placeholder={placeholder}
+        name={label}
+        value={value}
+        onChange={changeDateInput}
+        className="w-3/5"
+      /> */}
       <p className={`${errorColor} italic text-sm`}>
         {label === "day" &&
           (error?.emptyDayError || error?.dayError || error?.invalidDateError)}
