@@ -28,6 +28,23 @@ function App() {
     return null;
   }
 
+  function millisecondsToYearsMonthsDays(milliseconds) {
+    const millisecondsInASecond = 1000;
+    const millisecondsInAMinute = millisecondsInASecond * 60;
+    const millisecondsInAnHour = millisecondsInAMinute * 60;
+    const millisecondsInADay = millisecondsInAnHour * 24;
+
+    const msPerYear = millisecondsInADay * 365.25; // 365.25 days per year on average to account for leap years
+    const msPerMonth = msPerYear / 12; // Approximate number of milliseconds in a month
+
+    const years = Math.floor(milliseconds / msPerYear);
+    const months = Math.floor((milliseconds % msPerYear) / msPerMonth);
+    const days = Math.floor(
+      ((milliseconds % msPerYear) % msPerMonth) / millisecondsInADay
+    );
+    return { years, months, days };
+  }
+
   function submitDOB(e) {
     e.preventDefault();
     const today = new Date();
@@ -49,6 +66,15 @@ function App() {
       !monthError &&
       !futureDateError &&
       !invalidDateError;
+
+    const dateDiffInMilliseconds = today.getTime() - submittedDate.getTime();
+    const {
+      years: yearDiff,
+      months: monthDiff,
+      days: dayDiff,
+    } = millisecondsToYearsMonthsDays(dateDiffInMilliseconds);
+
+    console.log(yearDiff, monthDiff, dayDiff);
 
     // submit form input
     dispatch({
