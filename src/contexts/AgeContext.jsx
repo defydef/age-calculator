@@ -7,7 +7,7 @@ const initialState = {
   date: "",
   month: "",
   year: "",
-  error: [],
+  error: null,
 };
 
 function reducer(state, action) {
@@ -24,16 +24,19 @@ function reducer(state, action) {
       return {
         ...state,
         date: action.payload,
+        error: null, // reset previous error
       };
     case "date/inputMonth":
       return {
         ...state,
         month: action.payload,
+        error: null, // reset previous error
       };
     case "date/inputYear":
       return {
         ...state,
         year: action.payload,
+        error: null, // reset previous error
       };
     default:
       throw new Error("Undefined action");
