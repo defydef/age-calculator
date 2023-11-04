@@ -48,7 +48,7 @@ export function DateInput({ placeholder, label }) {
         {label}
       </label>
       <input
-        className={`w-[160px] px-[24px] py-[6px] rounded-[8px] border border-solid border-line placeholder:text-[var(--black)] placeholder:opacity-50 placeholder:tracking-[var(--heading-m-letter-spacing)] placeholder:leading-[var(--heading-m-line-height)] placeholder:font-[number:var(--heading-m-font-weight)] items-center h-fit text-[32px] placeholder:uppercase font-[number:var(--heading-m-font-weight)] ${errorLine}`}
+        className={`w-[160px] px-[24px] py-[6px] rounded-[8px] border border-solid border-line placeholder:text-[var(--black)] placeholder:opacity-50 placeholder:tracking-[var(--heading-m-letter-spacing)] placeholder:leading-[var(--heading-m-line-height)] placeholder:font-[number:var(--heading-m-font-weight)] items-center h-fit text-[32px] placeholder:uppercase font-[number:var(--heading-m-font-weight)] focus:outline-[var(--purple)] cursor-pointer caret-[var(--purple)] ${errorLine}`}
         type="number"
         placeholder={placeholder}
         name="day"

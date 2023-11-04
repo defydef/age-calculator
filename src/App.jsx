@@ -4,7 +4,7 @@ import DateInputGroup from "./ui/DateInputGroup";
 import { useAge } from "./contexts/AgeContext";
 
 function App() {
-  const { dispatch, day, month, year, error } = useAge();
+  const { dispatch, day, month, year } = useAge();
   function isLeapYear(year) {
     // Leap years are divisible by 4
     if (year % 4 !== 0) {
@@ -37,9 +37,10 @@ function App() {
     const futureDateError =
       submittedDate > today ? "Must be in the past" : null;
     const invalidDateError = getInvalidDateError(day, month, year);
-    const emptyDayError = !day ? "This field is required" : null;
-    const emptyMonthError = !month ? "This field is required" : null;
-    const emptyYearError = !year ? "This field is required" : null;
+    const requiredFieldMessage = "This field is required";
+    const emptyDayError = !day ? requiredFieldMessage : null;
+    const emptyMonthError = !month ? requiredFieldMessage : null;
+    const emptyYearError = !year ? requiredFieldMessage : null;
     const isValidInput =
       !emptyDayError &&
       !emptyMonthError &&
