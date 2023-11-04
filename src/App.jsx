@@ -4,7 +4,7 @@ import DateInputGroup from "./ui/DateInputGroup";
 import { useAge } from "./contexts/AgeContext";
 
 function App() {
-  const { dispatch, day, month, year } = useAge();
+  const { dispatch, day, month, year, error } = useAge();
   function isLeapYear(year) {
     // Leap years are divisible by 4
     if (year % 4 !== 0) {
@@ -32,22 +32,32 @@ function App() {
     e.preventDefault();
     const today = new Date();
     const submittedDate = new Date(year, month - 1, day);
-    const dayError =
-      day < 1 || day > 31 ? "date is not within valid range" : null;
-    const monthError =
-      month < 1 || month > 12 ? "month is not within valid range" : null;
+    const dayError = day < 1 || day > 31 ? "Must be a valid day" : null;
+    const monthError = month < 1 || month > 12 ? "Must be a valid month" : null;
     const futureDateError =
-      submittedDate > today ? "date should not be in the future" : null;
+      submittedDate > today ? "Must be in the past" : null;
     const invalidDateError = getInvalidDateError(day, month, year);
-
+    const emptyFieldError =
+      !day || !month || !year ? "date input is required" : null;
     const isValidInput =
-      !dayError && !monthError && !futureDateError && !invalidDateError;
+      !emptyFieldError &&
+      !dayError &&
+      !monthError &&
+      !futureDateError &&
+      !invalidDateError;
 
+    // submit form input
     dispatch({
       type: "submit",
       payload: isValidInput
         ? null
-        : { dayError, monthError, futureDateError, invalidDateError },
+        : {
+            emptyFieldError,
+            dayError,
+            monthError,
+            futureDateError,
+            invalidDateError,
+          },
     });
   }
 
