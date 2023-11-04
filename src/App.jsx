@@ -4,21 +4,26 @@ import DateInputGroup from "./ui/DateInputGroup";
 import { useAge } from "./contexts/AgeContext";
 
 function App() {
-  const { dispatch, date, month } = useAge();
+  const { dispatch, day, month, year } = useAge();
 
   function submitDOB(e) {
     e.preventDefault();
+    const today = new Date();
 
     const dayError =
-      date < 1 || date > 31 ? "date is not within valid range" : null;
+      day < 1 || day > 31 ? "date is not within valid range" : null;
     const monthError =
       month < 1 || month > 12 ? "month is not within valid range" : null;
+    const futureDateError =
+      submittedDate > today ? "date should not be in the future" : null;
+    const submittedDate = new Date(year, month - 1, day);
+    console.log(submittedDate < today);
 
-    const isValidInput = !dayError && !monthError;
+    const isValidInput = !dayError && !monthError && !futureDateError;
 
     dispatch({
       type: "submit",
-      payload: isValidInput ? null : { dayError, monthError },
+      payload: isValidInput ? null : { dayError, monthError, futureDateError },
     });
   }
 

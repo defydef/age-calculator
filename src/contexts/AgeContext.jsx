@@ -4,7 +4,7 @@ import { createContext, useContext, useReducer } from "react";
 const AgeContext = createContext();
 
 const initialState = {
-  date: "",
+  day: "",
   month: "",
   year: "",
   error: null,
@@ -15,7 +15,7 @@ function reducer(state, action) {
     case "submit":
       return {
         ...state,
-        date: state.date,
+        day: state.day,
         month: state.month,
         year: state.year,
         error: action.payload,
@@ -23,7 +23,7 @@ function reducer(state, action) {
     case "date/inputDay":
       return {
         ...state,
-        date: action.payload,
+        day: action.payload,
         error: null, // reset previous error
       };
     case "date/inputMonth":
@@ -44,13 +44,13 @@ function reducer(state, action) {
 }
 
 function AgeProvider({ children }) {
-  const [{ date, month, year, error }, dispatch] = useReducer(
+  const [{ day, month, year, error }, dispatch] = useReducer(
     reducer,
     initialState
   );
 
   return (
-    <AgeContext.Provider value={{ date, month, year, error, dispatch }}>
+    <AgeContext.Provider value={{ day, month, year, error, dispatch }}>
       {children}
     </AgeContext.Provider>
   );

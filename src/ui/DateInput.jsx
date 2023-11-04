@@ -1,9 +1,9 @@
 import { useAge } from "../contexts/AgeContext";
 
 export function DateInput({ placeholder, label }) {
-  const { dispatch, date, month, year } = useAge();
+  const { dispatch, day, month, year } = useAge();
 
-  const value = label === "day" ? date : label === "month" ? month : year;
+  const value = label === "day" ? day : label === "month" ? month : year;
 
   function changeDateInput(e) {
     if (label === "day") {
