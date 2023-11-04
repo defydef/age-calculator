@@ -1,12 +1,13 @@
-import { useState } from "react";
 import AgeDisplay from "./ui/AgeDisplay";
 import Button from "./ui/Button";
 import DateInputGroup from "./ui/DateInputGroup";
+import { useAge } from "./contexts/AgeContext";
 
 function App() {
+  const { dispatch, date, month, year } = useAge();
   function submitDOB(e) {
     e.preventDefault();
-    console.log("test");
+    if (date < 1 || date > 12) console.log("test");
   }
 
   return (

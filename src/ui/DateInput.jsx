@@ -1,7 +1,29 @@
-import { useState } from "react";
+import { useAge } from "../contexts/AgeContext";
 
 export function DateInput({ placeholder, label }) {
-  const [input, setInput] = useState("");
+  const { dispatch, date, month, year } = useAge();
+
+  const value = label === "day" ? date : label === "month" ? month : year;
+
+  function changeDateInput(e) {
+    if (label === "day") {
+      dispatch({
+        type: "date/inputDay",
+        payload: Number(e.target.value),
+      });
+    } else if (label === "month") {
+      dispatch({
+        type: "date/inputMonth",
+        payload: Number(e.target.value),
+      });
+    } else if (label === "year") {
+      dispatch({
+        type: "date/inputYear",
+        payload: Number(e.target.value),
+      });
+    }
+  }
+
   return (
     <div className="inline-flex flex-col items-start gap-[8px] relative flex-[0_0_auto]">
       <label
@@ -15,8 +37,8 @@ export function DateInput({ placeholder, label }) {
         type="text"
         placeholder={placeholder}
         name="day"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
+        value={value}
+        onChange={changeDateInput}
       />
     </div>
   );

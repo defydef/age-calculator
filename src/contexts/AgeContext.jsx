@@ -4,9 +4,9 @@ import { createContext, useContext, useReducer } from "react";
 const AgeContext = createContext();
 
 const initialState = {
-  date: 0,
-  month: 0,
-  year: 0,
+  date: "",
+  month: "",
+  year: "",
   error: [],
 };
 
@@ -15,10 +15,25 @@ function reducer(state, action) {
     case "submit":
       return {
         ...state,
-        date: action.payload.date,
-        month: action.payload.month,
-        year: action.payload.year,
-        error: action.payload.error,
+        date: state.date,
+        month: state.month,
+        year: state.year,
+        error: action.payload,
+      };
+    case "date/inputDay":
+      return {
+        ...state,
+        date: action.payload,
+      };
+    case "date/inputMonth":
+      return {
+        ...state,
+        month: action.payload,
+      };
+    case "date/inputYear":
+      return {
+        ...state,
+        year: action.payload,
       };
     default:
       throw new Error("Undefined action");
