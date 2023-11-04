@@ -7,6 +7,7 @@ const initialState = {
   day: "",
   month: "",
   year: "",
+  dateDiff: {},
   error: null,
 };
 
@@ -18,7 +19,8 @@ function reducer(state, action) {
         day: state.day,
         month: state.month,
         year: state.year,
-        error: action.payload,
+        error: action.payload?.errors,
+        dateDiff: action.payload?.dateDiff,
       };
     case "date/inputDay":
       return {
@@ -44,13 +46,15 @@ function reducer(state, action) {
 }
 
 function AgeProvider({ children }) {
-  const [{ day, month, year, error }, dispatch] = useReducer(
+  const [{ day, month, year, error, dateDiff }, dispatch] = useReducer(
     reducer,
     initialState
   );
 
   return (
-    <AgeContext.Provider value={{ day, month, year, error, dispatch }}>
+    <AgeContext.Provider
+      value={{ day, month, year, error, dateDiff, dispatch }}
+    >
       {children}
     </AgeContext.Provider>
   );

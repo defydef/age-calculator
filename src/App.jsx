@@ -74,21 +74,27 @@ function App() {
       days: dayDiff,
     } = millisecondsToYearsMonthsDays(dateDiffInMilliseconds);
 
-    console.log(yearDiff, monthDiff, dayDiff);
-
     // submit form input
     dispatch({
       type: "submit",
       payload: isValidInput
-        ? null
+        ? {
+            dateDiff: {
+              yearDiff,
+              monthDiff,
+              dayDiff,
+            },
+          }
         : {
-            emptyDayError,
-            emptyMonthError,
-            emptyYearError,
-            dayError,
-            monthError,
-            futureDateError,
-            invalidDateError,
+            errors: {
+              emptyDayError,
+              emptyMonthError,
+              emptyYearError,
+              dayError,
+              monthError,
+              futureDateError,
+              invalidDateError,
+            },
           },
     });
   }
