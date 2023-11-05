@@ -101,7 +101,7 @@ function App() {
 
   return (
     <div className="flex bg-[var(--light-grey)] items-center justify-center h-screen w-screen">
-      <div className="flex flex-col sm:w-[840px] w-[21.4375rem] h-[80vh] sm:h-fit items-center sm:p-[56px] bg-white rounded-[1.5rem_1.5rem_6.25rem_1.5rem] sm:rounded-[1.5rem_1.5rem_12.5rem_1.5rem] p-[3rem_1.5rem] gap-2">
+      <div className="flex flex-col sm:w-[840px] w-[21.4375rem] h-[80vh] sm:h-fit items-center sm:p-[56px] bg-white rounded-[1.5rem_1.5rem_6.25rem_1.5rem] sm:rounded-[1.5rem_1.5rem_12.5rem_1.5rem] p-[3rem_1.5rem] gap-6">
         <DateInputGroup />
         <div className="sm:flex items-center relative self-stretch w-full flex-[0_0_auto]">
           <div className="hidden sm:flex flex-col items-start gap-[10px] relative flex-1 grow h-px bg-[var(--line)]"></div>

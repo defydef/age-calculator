@@ -48,7 +48,7 @@ export function DateInput({ placeholder, label }) {
         {label}
       </label>
       <input
-        className={`sm:w-[160px] w-full sm:px-[24px] sm:py-[6px] p-[0.75rem_1rem] sm:rounded-[8px] rounded-lg border border-solid border-line placeholder:text-[var(--black)] placeholder:opacity-50 placeholder:tracking-[var(--heading-m-letter-spacing)] placeholder:leading-[var(--heading-m-line-height)] placeholder:sm:font-[number:var(--heading-m-font-weight)] items-center h-fit sm:text-[32px] text-[1.25rem] placeholder:uppercase font-[number:var(--heading-m-font-weight)] focus:outline-[var(--purple)] cursor-pointer caret-[var(--purple)] placeholder:text-[1.25rem] ${errorLine}`}
+        className={`sm:w-[160px] w-full p-[0.75rem_1rem] sm:rounded-[8px] rounded-lg border border-solid border-line placeholder:text-[var(--black)] placeholder:opacity-50 placeholder:tracking-[var(--heading-m-letter-spacing)] placeholder:leading-[var(--heading-m-line-height)] placeholder:sm:font-[number:var(--heading-m-font-weight)] items-center h-fit sm:text-[2rem] text-[1.25rem] placeholder:uppercase font-[number:var(--heading-m-font-weight)] focus:outline-[var(--purple)] cursor-pointer caret-[var(--purple)] placeholder:text-[1.25rem] sm:placeholder:text-[2rem] ${errorLine}`}
         type="number"
         placeholder={placeholder}
         name="day"
