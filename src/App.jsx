@@ -1,5 +1,6 @@
 import { AgeProvider } from "./contexts/AgeContext";
 import AgeDisplay from "./ui/AgeDisplay";
+import Attribution from "./ui/Attribution";
 import Box from "./ui/Box";
 import DateInputGroup from "./ui/DateInputGroup";
 import Line from "./ui/Line";
@@ -20,6 +21,7 @@ function App() {
           <AgeDisplay />
         </AgeProvider>
       </Box>
+      <Attribution />
     </MainContainer>
   );
 }

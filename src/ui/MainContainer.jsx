@@ -1,6 +1,6 @@
 function MainContainer({ children }) {
   return (
-    <main className="flex bg-[var(--light-grey)] items-center justify-center h-screen w-screen">
+    <main className="flex flex-col bg-[var(--light-grey)] items-center justify-center h-screen w-screen">
       {children}
     </main>
   );
