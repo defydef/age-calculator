@@ -37,9 +37,12 @@ Users should be able to:
 
 ### Screenshot
 
+Desktop - Active
 ![Desktop Screenshot](./public/screenshot-desktop.png)
-![Mobile Screenshot](./public/screenshot-mobile.png)
+Desktop - Error
 ![Error Screenshot](./public/screenshot-error.png)
+Mobile - Active
+![Mobile Screenshot](./public/screenshot-mobile.png)
 
 ### Links
 
