@@ -54,6 +54,7 @@ export function DateInput({ placeholder, label }) {
         name="day"
         value={value}
         onChange={changeDateInput}
+        id={label}
       />
       {/* <input
         placeholder={placeholder}
