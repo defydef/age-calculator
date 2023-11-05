@@ -37,9 +37,9 @@ Users should be able to:
 
 ### Screenshot
 
-![Desktop Screenshot](../../public/screenshot-desktop.png)
-![Mobile Screenshot](../../public/screenshot-mobile.png)
-![Error Screenshot](../../public/screenshot-error.png)
+![Desktop Screenshot](./public/screenshot-desktop.png)
+![Mobile Screenshot](./public/screenshot-mobile.png)
+![Error Screenshot](./public/screenshot-error.png)
 
 ### Links
 
