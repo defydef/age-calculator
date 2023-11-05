@@ -38,16 +38,16 @@ Users should be able to:
 ### Screenshot
 
 Desktop - Active
-![Desktop Screenshot](./public/screenshot-desktop.png)
+![](./public/screenshot-desktop.png)
 Desktop - Error
-![Error Screenshot](./public/screenshot-error.png)
+![](./public/screenshot-error.png)
 Mobile - Active
 ![Mobile Screenshot](./public/screenshot-mobile.png)
 
 ### Links
 
-- Solution URL: [Add solution URL here](https://your-solution-url.com)
-- Live Site URL: [Add live site URL here](https://your-live-site-url.com)
+- Solution URL: [Github](https://github.com/defydef/age-calculator)
+- Live Site URL: [Vercel App](https://age-calculator-defydef.vercel.app/)
 
 ## My process
 
