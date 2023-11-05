@@ -1,3 +1,4 @@
+import { AgeProvider } from "./contexts/AgeContext";
 import AgeDisplay from "./ui/AgeDisplay";
 import Box from "./ui/Box";
 import DateInputGroup from "./ui/DateInputGroup";
@@ -10,12 +11,14 @@ function App() {
   return (
     <MainContainer>
       <Box>
-        <DateInputGroup />
-        <LineButton>
-          <Line />
-          <SubmitButton />
-        </LineButton>
-        <AgeDisplay />
+        <AgeProvider>
+          <DateInputGroup />
+          <LineButton>
+            <Line />
+            <SubmitButton />
+          </LineButton>
+          <AgeDisplay />
+        </AgeProvider>
       </Box>
     </MainContainer>
   );
