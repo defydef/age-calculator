@@ -58,7 +58,6 @@ Mobile - Active
 - Flexbox
 - Mobile-first workflow
 - [React](https://reactjs.org/) - JS library
-- [Next.js](https://nextjs.org/) - React framework
 - [Tailwind CSS] (https://tailwindcss.com/) - CSS framework
 
 ### Continued development
